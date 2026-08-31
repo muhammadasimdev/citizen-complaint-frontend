@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Deep, near-black green-charcoal used for the AI briefing + hero panels */
+  --color-canopy: #0b2318;
+  --color-canopy-soft: #123a28;
+
+  --animate-pulse-line: pulse-line 2.4s ease-in-out infinite;
+  --animate-rise: rise 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: #16211c;
+  }
+  ::selection {
+    background-color: #bbf0d1;
+    color: #0b2318;
+  }
+}
+
+@utility hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pulse-line {
+  0%, 100% { stroke-dashoffset: 0; opacity: 0.9; }
+  50% { stroke-dashoffset: -24; opacity: 1; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
